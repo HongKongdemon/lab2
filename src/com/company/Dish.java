@@ -5,7 +5,7 @@ public class Dish {
     private String name;
 
     private String descpription;
-    private static int zero = 0;
+    private static final int zero = 0;
 
     public Dish( String name, String descpription) {
         this(name, descpription, zero);

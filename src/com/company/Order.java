@@ -22,11 +22,17 @@ public class Order {
     public boolean add(Dish dish) {
         if (size >= dishes.length)
             dishes[size] = dish;
+            EnlargementOfTheArray();
         size++;
         return true;
     }
+    private void EnlargementOfTheArray() {
+        Dish[] dishes1 = new Dish[dishes.length * 2];
+        System.arraycopy(dishes, 0, dishes1, 0, dishes.length);
+        dishes = dishes1;
+        }
 
-    public boolean remove(String dishName) {
+        public boolean remove(String dishName) {
         for (int i = 0; i < size; i++) {
 
             if (dishes[i].getName().equals(dishName)) {
@@ -86,18 +92,17 @@ public class Order {
     public String[] dishesNames() {
         int h = 0;
         String[] dishNames = new String[size];
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < size; i++)
             if (!matches(dishNames, dishes[i].getName())) {
                 dishNames[h++] = dishes[i].getName();
             }
-        }
         String[] dishNamesResult = new String[h];
         System.arraycopy(dishNames, 0, dishNamesResult, 0, dishNamesResult.length);
         return dishNamesResult;
     }
 
 
-    private boolean matches(String[] dishNames, String dishName) {
+    private boolean matches (String[] dishNames, String dishName) {
         for (String dn : dishNames) {
             if (dn != null && dn.equals(dishName))
                 return true;
