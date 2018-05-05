@@ -7,28 +7,33 @@ public class Dish {
     private String descpription;
     private static int zero = 0;
 
-    public Dish (name, descpription) {
-       this(String name, String descpription, double cost);
+    public Dish( String name, String descpription) {
+        this(name, descpription, zero);
     }
-    public Dish(String name, String descpription, double cost){
+
+    public Dish(String name, String descpription, double cost) {
         this.name = name;
         this.descpription = descpription;
         this.cost = cost;
     }
 
-    public double getCost(){
+    public double getCost() {
         return cost;
     }
-    public void setCost(double cost){
+
+    public void setCost(double cost) {
         this.cost = cost;
     }
-    public String getName(){
+
+    public String getName() {
         return name;
     }
-    public void setName(String name){
+
+    public void setName(String name) {
         this.name = name;
     }
-    public String getDescpription(){
+
+    public String getDescpription() {
         return descpription;
     }
 

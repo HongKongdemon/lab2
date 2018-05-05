@@ -17,7 +17,7 @@ public class Order {
 
     public boolean add (Dish dish){
         if (size >= dishes.length)
-        Dish[size] = size;
+        dishes[size] = dish;
         size++;
         return true;
     }
@@ -79,7 +79,7 @@ public class Order {
         int h = 0;
         String[] dishNames = new String[size];
         for (int i = 0; i < size; i++) {
-            if (!(dishNames, dishes[i].getName())) {
+            if (!prover(dishNames, dishes[i].getName())) {
                 dishNames[h++] = dishes[i].getName();
             }
         }
@@ -88,16 +88,26 @@ public class Order {
         return dishNamesResult;
     }
 
+
+    private boolean prover(String[] dishNames, String dishName) {
+        for (int i = 0; i < dishNames.length; i++) {
+            String dn = dishNames[i];
+            if (dn != null && dn.equals(dishName))
+                return true;
+        }
+        return false;
+    }
     public Dish [] sortedDishesByCostDesc() {
-        for (int i = 0; i < dishesNames().length; i++)
+
+        for (int i = 0; i <dishes.length; i++)
         {
-            for (int j = 0; j < dishesNames().length - i - 1 ; j++)
+            for (int j = 0; j < dishes.length - i - 1 ; j++)
             {
-                if (dishesNames()[j] > dishesNames()[j + 1])
+                if (dishes[j].getCost() < dishes[j + 1].getCost())
                 {
-                    int temp = dishesNames()[j];
-                    dishesNames()[j] = dishesNames()[j + 1];
-                    dishesNames()[j + 1] = temp;
+                    Dish temp = dishes[j];
+                    dishes[j] = dishes[j + 1];
+                    dishes[j + 1] = temp;
                 }
             }
         }
