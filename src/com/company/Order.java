@@ -15,24 +15,28 @@ public class Order {
     }
 
     public Order(Dish[] dishes) {
-        this.dishes = dishes;
         this.size = 0;
+        for (int i = 0; i < dishes.length; i++) {
+            add(dishes[i]);
+
+        }
     }
 
     public boolean add(Dish dish) {
         if (size >= dishes.length)
-            dishes[size] = dish;
             EnlargementOfTheArray();
+        dishes[size] = dish;
         size++;
         return true;
     }
+
     private void EnlargementOfTheArray() {
         Dish[] dishes1 = new Dish[dishes.length * 2];
         System.arraycopy(dishes, 0, dishes1, 0, dishes.length);
         dishes = dishes1;
-        }
+    }
 
-        public boolean remove(String dishName) {
+    public boolean remove(String dishName) {
         for (int i = 0; i < size; i++) {
 
             if (dishes[i].getName().equals(dishName)) {
@@ -90,6 +94,7 @@ public class Order {
     }
 
     public String[] dishesNames() {
+        Dish[] dishes = getDishes();
         int h = 0;
         String[] dishNames = new String[size];
         for (int i = 0; i < size; i++)
@@ -102,13 +107,16 @@ public class Order {
     }
 
 
-    private boolean matches (String[] dishNames, String dishName) {
+    private boolean matches(String[] dishNames, String dishName) {
         for (String dn : dishNames) {
-            if (dn != null && dn.equals(dishName))
-                return true;
+            if (dn != null && dishName != null) {
+                return dn.equals(dishName);
+            }
+
         }
         return false;
     }
+
 
     public Dish[] sortedDishesByCostDesc() {
         Dish[] dishes1 = this.dishes;

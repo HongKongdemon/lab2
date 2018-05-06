@@ -1,7 +1,6 @@
 package com.company;
 
 import java.util.function.Predicate;
-import java.util.Objects;
 
 public class OrderManager {
     private Order[] orders;
@@ -36,17 +35,18 @@ public class OrderManager {
     }
 
     public int[] freeTableNums() {
-        Predicate<Order> isNull = Objects::isNull;
+
+        Predicate<Order> isNull = s -> s==null;
         return predicateTableNums(isNull);
     }
 
     public int[] noFreeTableNums() {
-        Predicate<Order> isNull = Objects::nonNull;
+        Predicate<Order> isNull = s -> s!=null;
         return predicateTableNums(isNull);
     }
 
 
-    private int[] predicateTableNums(Predicate isNull) {
+    private int[] predicateTableNums(Predicate<Order> isNull) {
         int[] nums = new int[orders.length];
         int j = 0;
         for (int i = 0; i < nums.length && j < nums.length; i++) {

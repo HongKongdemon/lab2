@@ -5,15 +5,15 @@ public class Test {
     private static Order o;
 
     public static void main(String[] args) {
-        System.out.println("Cоздаем пробный заказ в 18 блюда ");
+        System.out.println("Cоздаем пробный заказ в 20 блюда ");
         o = new Order();
         add();
         OrderManager om = new OrderManager(5);
         System.out.println("Помещаем заказ в менеджер на стол 1 и 3");
         om.add(o, 3);
         om.add(o, 1);
-        System.out.println("Добавляем блюдо \"qa\" в заказ на 3 стол");
-        d = new Dish("qa", "ss,dd,ff,gg", 1);
+        System.out.println("Добавляем блюдо \"Фаршмак\" в заказ на 3 стол");
+        d = new Dish("Фршмак", "ss,dd,ff,gg", 1);
         om.addDish(d, 3);
         int[] df = om.noFreeTableNums();
         System.out.print("Занятые столы  ");
@@ -30,8 +30,9 @@ public class Test {
             System.out.print(dsd + " ");
         }
 
-
         o = om.getOrder(3);
+        Dish[] dis = o.getDishes();
+
         System.out.println("\n\nВсего блюд в заказе 3 стола " + o.dishQuantity());
         String[] st = o.dishesNames();
         System.out.print("Названия блюд в заказе без повторов  ");
@@ -81,6 +82,10 @@ public class Test {
         d = new Dish("Мастурба", "ss,dd,ff,gg", 5);
         o.add(d);
         d = new Dish("Овсянка \"Сэр\"", "ss,dd,ff,gg", 3);
+        o.add(d);
+        d = new Dish("cx", "ss,dd,ff,gg", 5);
+        o.add(d);
+        d = new Dish("cx", "ss,dd,ff,gg", 5);
         o.add(d);
     }
 }
