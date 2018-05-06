@@ -1,4 +1,4 @@
-package com.company;
+package barBossHouse;
 
 import java.util.function.Predicate;
 

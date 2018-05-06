@@ -1,4 +1,4 @@
-package com.company;
+package barBossHouse;
 
 public class Order {
     private int size;

@@ -1,4 +1,4 @@
-package com.company;
+package barBossHouse;
 
 public class Test {
     private static Dish d;

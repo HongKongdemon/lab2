@@ -1,4 +1,4 @@
-package com.company;
+package barBossHouse;
 
 public class Dish {
     private double cost;
